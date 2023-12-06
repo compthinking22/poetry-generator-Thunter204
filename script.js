@@ -27,7 +27,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(400, 200);
+  createCanvas(1920, 923); 
   noLoop(); // Stop the draw loop after the first iteration
 
   const fullString = result.join("\n");
@@ -72,9 +72,11 @@ function draw() {
 function drawResult() {
   background(255);
   fill(0);
-  textSize(16);
+  textSize(58);
+  textAlign(CENTER, TOP);
+  textStyle(BOLD);
   var expandedGrammar = grammar.expand();
-  text(expandedGrammar, 10, 30);
+  text(expandedGrammar, width / 2, 10 );
   console.log(expandedGrammar); // Optional: Print to console
 }
 // var result;
