@@ -9,7 +9,7 @@ var grammar;
 
 var grammarDict = {
   "start": "$n $fir $p $sec\n\n $num $a $fir\n $num $a $sec\n $num $a $r\n $num $a $r\n $num $a $r\n $num $a $r\n", //title, recipe
-  "p": "with | with a side of ",
+  "p": "with | with a side of | along with ",
   "num": "1 | 2 | 3 | 4",
   "#fir":"$v",
   "#sec":"$r" //Gets repeated in title and once in the recipe
@@ -17,9 +17,9 @@ var grammarDict = {
 
 var words = {
   'n': "", //titles
-  'v': "", 
+  'v': "", //main ingredients, fir
   'a': "", //Measurements
-  'r': "" //ingredients
+  'r': "" //ingredients. sec
 };
 
 function preload() {
@@ -39,7 +39,7 @@ function setup() {
   const fullESTString = resultThree.join("\n");
   const fullFString = resultFour.join("\n");
 
-  /*-------------------------------TITLES------------------------------------------------ */
+  /*---------------------------------TITLES------------------------------------------------ */
 
   fullString.split('\n').forEach((line) => { 
     const lineWords = [];
@@ -55,7 +55,7 @@ function setup() {
   grammarDict['n'] = words['n'];
   grammar = RiTa.grammar(grammarDict);
 
-  /*-----------------------------INGREDIENTS----------------------------------------------- */
+  /*-------------------------------INGREDIENTS----------------------------------------------- */
   fullERString.split('\n').forEach((line) => {
     const lineWords = [];
     RiTa.tokenize(line).forEach((element) => {
@@ -86,6 +86,7 @@ function setup() {
   grammarDict['a'] = words['a'];
   grammar = RiTa.grammar(grammarDict);
 
+  /*------------------------------MAIN INGREDIENTS--------------------------------------------- */ 
   fullFString.split('\n').forEach((line) => { 
     const lineWords = [];
     RiTa.tokenize(line).forEach((element) => {
