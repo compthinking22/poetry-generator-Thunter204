@@ -2,3 +2,13 @@ cup
 cups 
 Tablespoon
 Tablespoons
+Teaspoon
+Teaspoons
+Ounce
+Ounces
+Pint
+Pints
+Quart
+Quarts
+Gallon
+Gallons
